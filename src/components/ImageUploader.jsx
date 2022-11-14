@@ -8,7 +8,7 @@ import { forwardRef } from 'react';
 
 // Wrap component in forwardRef to gain access to ref object that is assigned using `ref` prop.
 const ImageUploader = forwardRef((props,ref) => {
-  const [selectedImages, setSelectedImages] = useState(props.uploadedImages);
+  const [selectedImages, setSelectedImages] = useState([]);
 
   useEffect(() => {
     props.onChange(props.name, selectedImages);

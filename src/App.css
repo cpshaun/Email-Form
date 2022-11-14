@@ -5,6 +5,7 @@
   padding: 2rem;
   text-align: center;
   color-scheme: light;
+  width: 80%;
 }
 
 .logo {
@@ -43,6 +44,7 @@
 }
 
 .footer-text {
-  margin-top: 150px;
+  padding-top: 150px;
+  margin: auto;
 }
 
