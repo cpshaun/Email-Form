@@ -65,6 +65,9 @@ const ImageUploader = forwardRef((props,ref) => {
         ADD IMAGE
         <input hidden accept="image/*" type="file" 
           onChange={handleUpload}
+          onClick={(e)=> { 
+            e.target.value = null
+          }}
         />
       </Button>
     </div>
