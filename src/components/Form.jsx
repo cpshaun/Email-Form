@@ -77,66 +77,70 @@ const Form = () => {
 
     return (
         <Card className="card">
-            <div className="name">
-                <PlainTextField 
-                    name="firstName" 
-                    label="First Name" 
-                    placeholder="First Name" 
-                    fullWidth
-                    value={fields.firstName}
-                    onChange={onChange}/>
+            <form encType="multipart/form-data">
+                <div className="name">
                     <PlainTextField 
-                    name="lastName" 
-                    label="Last Name" 
-                    value={fields.lastName}
-                    placeholder="Last Name" 
-                    fullWidth
-                    onChange={onChange}
-                />
-            </div>
-            {/* <h3>Full name is: {fields.firstName + ' ' + fields.lastName}</h3> */}
-            <div className="description">
-                <PlainTextField 
-                    name="description" 
-                    label="Description" 
-                    placeholder="Message Body" 
-                    multiline 
-                    fullWidth 
-                    value={fields.description}
-                    minRows="4"
-                    maxRows="10" 
-                    onChange={onChange}
-                />
-            </div>
-            <div className="email">
-                <EmailTextField 
-                    value={fields.email}
-                    fullWidth 
-                    onChange={onChange}
-                />
-            </div>
-            <div className="uploaded-images">
-                <ImageUploader 
-                    ref={imagesRef}
-                    onChange={onChange}
-                    name="uploadedImages"
-                />
-            </div>
-            <Button 
-                className="submit" 
-                variant="contained"
-                disabled={disabled}
-                onClick={handleSubmit}
-            >
-                SEND
-            </Button>
-            {submitting && (
-                <LoadingScreen loadingTime={loadingTime}/>
-            )}
-            {submitted && (console.log(submitted))}
-            {submitted && (
-                <NotificationModal header={successModal.header} body={successModal.body} closeModal={closeModal}/>
-            )}
+                        name="firstName" 
+                        label="First Name" 
+                        placeholder="First Name" 
+                        fullWidth
+                        value={fields.firstName}
+                        onChange={onChange}/>
+                        <PlainTextField 
+                        name="lastName" 
+                        label="Last Name" 
+                        value={fields.lastName}
+                        placeholder="Last Name" 
+                        fullWidth
+                        onChange={onChange}
+                    />
+                </div>
+                {/* <h3>Full name is: {fields.firstName + ' ' + fields.lastName}</h3> */}
+                <div className="description">
+                    <PlainTextField 
+                        name="description" 
+                        label="Description" 
+                        placeholder="Message Body" 
+                        multiline 
+                        fullWidth 
+                        value={fields.description}
+                        minRows="4"
+                        maxRows="10" 
+                        onChange={onChange}
+                    />
+                </div>
+                <div className="email">
+                    <EmailTextField 
+                        value={fields.email}
+                        fullWidth 
+                        onChange={onChange}
+                    />
+                </div>
+                <div className="uploaded-images">
+                    <ImageUploader 
+                        ref={imagesRef}
+                        onChange={onChange}
+                        name="uploadedImages"
+                    />
+                </div>
+                <Button 
+                    className="submit" 
+                    variant="contained"
+                    disabled={disabled}
+                    onClick={handleSubmit}
+                    type="submit"
+                    value="submit"
+                >
+                    SEND
+                </Button>
+                {submitting && (
+                    <LoadingScreen loadingTime={loadingTime}/>
+                )}
+                {submitted && (console.log(submitted))}
+                {submitted && (
+                    <NotificationModal header={successModal.header} body={successModal.body} closeModal={closeModal}/>
+                )}
+            </form>
         </Card>
     )
 }

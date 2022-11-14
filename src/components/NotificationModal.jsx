@@ -17,9 +17,11 @@ const NotificationModal = (props) => {
     <div className="page-width">
         <Card className="modal">
             <div className="modal-header">
+              <div className="modal-header-message-icon">
                 <MarkunreadMailboxIcon />
                 <span className="modal-header-message">{props.header}</span>
-                <CloseIcon onClick={closeModal}/>
+              </div>                
+                <CloseIcon className="modal-close" onClick={closeModal}/>
             </div>
             <div className="modal-body">
             {props.body}

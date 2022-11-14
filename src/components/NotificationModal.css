@@ -45,7 +45,17 @@
     display:block;
     padding: 15px;
     font-size: 20px;
-    margin-right: 175px;
+}
+
+.modal-header-message-icon {
+    display: flex;    
+    align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+    .modal {
+        width: 250px;
+    }
 }
 
 .modal-body {

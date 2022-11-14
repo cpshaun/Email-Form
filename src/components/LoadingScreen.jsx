@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { LinearProgress } from '@mui/material';
 
+import './LoadingScreen.css'
+
 const LoadingScreen = (props) => {
     const [progress,setProgress] = useState(0)
     const ref = useRef(null)
