@@ -20,7 +20,9 @@
 }
 
 .modal {
-    position:relative;
+    position:fixed;
+    top:40%;
+    left: calc(50% - 200px);
     border-radius: 5px !important;
     width:400px;
     margin: auto;
@@ -55,6 +57,7 @@
 @media screen and (max-width: 500px) {
     .modal {
         width: 250px;
+        left: calc(50% - 125px)
     }
 }
 
