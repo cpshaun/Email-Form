@@ -55,12 +55,12 @@ const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitting(true)
-        return new Promise(() => {
-            setTimeout(() => {
-                setSubmitting(false)
-                setSubmitted(true)
-            },loadingTime)
-        })
+        // return new Promise(() => {
+        //     setTimeout(() => {
+        //         setSubmitting(false)
+        //         setSubmitted(true)
+        //     },loadingTime)
+        // })
     }
 
     // Gain access to child component instance(ImageUploader)

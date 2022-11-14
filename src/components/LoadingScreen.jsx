@@ -10,8 +10,8 @@ const LoadingScreen = (props) => {
             setProgress((oldProgress) => {
                 if(oldProgress == 100){
                     setTimeout(()=> {
-                        ref.current.innerHTML = 'SENT'
-                        ref.current.style.color = '#00B200';
+                        ref.current.innerHTML = 'Sent!'
+                        ref.current.style.color = 'rgb(25, 118, 210)';
                         clearInterval(timer);   
                     },300)
                 }
@@ -26,7 +26,7 @@ const LoadingScreen = (props) => {
         <div className="success_loading-background"/>
         <div className="page-width">
             <div className="success_loading-elements">
-                <span className="success_loading-message" ref={ref}>SENDING</span>
+                <span className="success_loading-message" ref={ref}>Sending</span>
                 <LinearProgress className="success_loading-progress-bar" variant="determinate" value={progress}/>
             </div>
         </div>
