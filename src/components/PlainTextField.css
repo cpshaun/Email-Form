@@ -1,0 +1,5 @@
+@media screen and (max-width: 768px) {
+    .MuiOutlinedInput-input {
+        height: 1.2em;
+    }
+}

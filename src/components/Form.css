@@ -4,12 +4,6 @@
     max-width: 800px;
 }
 
-@media screen and (max-width: 768px) {
-    .card {
-        width: 85%;
-    }
-}
-
 .name {
     display: flex;
     flex-direction: row;
@@ -19,6 +13,7 @@
 @media screen and (max-width: 500px) {
     .name {
         flex-direction: column;
+        gap: 4px;
     }
 }
 
@@ -34,6 +29,12 @@
     font-size:20px !important;
     width: 300px;
     margin-top:30px !important;
+}
+
+@media screen and (max-width: 500px) {
+    .submit{
+        width: 60%;
+    }
 }
 
 .success_loading-background {

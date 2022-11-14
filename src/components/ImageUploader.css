@@ -24,13 +24,15 @@ img {
 .cancel-icon {
     height: 30px !important;
     width: 30px !important;
-    position: absolute;
+    position: absolute !important;
     top: 0px;
     right: 0px;
-    color: white;
-    pointer-events: none;
-    background-color: grey;
-    border-radius: 0 0 0 6px;
+    color: white !important;
+    /* pointer-events: none; */
+    background-color: grey !important;
+    border-radius: 0 0 0 6px !important;
+    cursor: pointer;
+    z-index:99;
 }
 
 .image_upload-button {
