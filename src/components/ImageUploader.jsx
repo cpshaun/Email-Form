@@ -15,10 +15,10 @@ const ImageUploader = forwardRef((props,ref) => {
   },[selectedImages])
 
   const handleUpload = e => {
-    console.log('uploading');
+    // console.log('uploading');
     const selectedFiles = e.target.files;
     const selectedFilesArray = Array.from(selectedFiles);
-    console.log(selectedFilesArray)
+    // console.log(selectedFilesArray)
 
     const imagesArray = selectedFilesArray.map((file) => {
       return [file.name,URL.createObjectURL(file)];
@@ -41,8 +41,8 @@ const ImageUploader = forwardRef((props,ref) => {
       return file[0][1] != img;
     } )
     setSelectedImages(newArray)
-    console.log('deleting')
-    console.log(newArray)
+    // console.log('deleting')
+    // console.log(newArray)
   }
 
   return (

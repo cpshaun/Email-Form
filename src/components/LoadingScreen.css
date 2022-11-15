@@ -12,7 +12,7 @@
     width: 100%;
     margin: auto;
     position:fixed;
-    z-index:2;
+    z-index:100;
     top: 40%;
 }
 
