@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+import emailjs from '@emailjs/browser';
+
 import './Form.css'
 import Card from '@mui/material/Card'
 import Button from '@mui/material/Button'
@@ -50,20 +52,9 @@ const Form = () => {
         }))
     }
 
-    const loadingTime = 3500;
+    const loadingTime = 2000;
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setSubmitting(true)
-        return new Promise(() => {
-            setTimeout(() => {
-                setSubmitting(false)
-                setSubmitted(true)
-            },loadingTime)
-        })
-    }
-
-    // Gain access to child component instance(ImageUploader)
+    // Gain access to child component instance(ImageUploader) to use ImageUploader function clearState()
     const imagesRef = useRef()
 
     const closeModal = (e) => {
@@ -74,10 +65,34 @@ const Form = () => {
 
     console.log(fields);
     
+    const form = useRef();
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setSubmitting(true);
+        emailjs.
+        sendForm(
+            import.meta.env.VITE_SERVICE_ID, 
+            import.meta.env.VITE_TEMPLATE_ID, 
+            form.current, 
+            import.meta.env.VITE_API_KEY)
+          .then((result) => {
+            setSubmitting(true);
+            console.log(result.text);
+            return new Promise(() => {
+                setTimeout(() => {
+                    setSubmitting(false)
+                    setSubmitted(true)
+                },loadingTime)
+            });            
+          }, (error) => {
+              console.log(error.text);
+          });
+      };
+
 
     return (
         <Card className="card">
-            <form encType="multipart/form-data">
+            <form encType="multipart/form-data" ref={form} onSubmit={sendEmail}>
                 <div className="name">
                     <PlainTextField 
                         name="firstName" 
@@ -95,7 +110,6 @@ const Form = () => {
                         onChange={onChange}
                     />
                 </div>
-                {/* <h3>Full name is: {fields.firstName + ' ' + fields.lastName}</h3> */}
                 <div className="description">
                     <PlainTextField 
                         name="description" 
@@ -127,7 +141,6 @@ const Form = () => {
                     className="submit" 
                     variant="contained"
                     disabled={disabled}
-                    onClick={handleSubmit}
                     type="submit"
                     value="submit"
                 >
@@ -136,7 +149,6 @@ const Form = () => {
                 {submitting && (
                     <LoadingScreen loadingTime={loadingTime}/>
                 )}
-                {submitted && (console.log(submitted))}
                 {submitted && (
                     <NotificationModal header={successModal.header} body={successModal.body} closeModal={closeModal}/>
                 )}
