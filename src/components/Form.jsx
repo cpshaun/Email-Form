@@ -63,7 +63,7 @@ const Form = () => {
         imagesRef.current.clearState();
     }
 
-    console.log(fields);
+    // console.log(fields);
     
     const form = useRef();
     const sendEmail = (e) => {

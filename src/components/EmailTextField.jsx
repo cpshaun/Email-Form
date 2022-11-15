@@ -12,10 +12,10 @@ const EmailTextField = (props) => {
         const val = e.target.value
         if(isEmail(val)){
             setIsValid(true);
-            console.log('Valid Email')
+            // console.log('Valid Email')
         } else {
             setIsValid(false);
-            console.log('Invalid Email')
+            // console.log('Invalid Email')
         }
       }
     
